@@ -8,7 +8,8 @@
     "serve": "node ./scripts/run_serve.js",
     "dev": "node ./scripts/run_dev.js",
     "build": "node ./scripts/run_build.js",
-    "data": "node ./scripts/run_data.js"
+    "data": "node ./scripts/run_data.js",
+    "init": "npm run script && npm run data"
   },
   "keywords": [],
   "author": "AhMisty",
