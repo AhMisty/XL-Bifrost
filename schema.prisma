@@ -1,0 +1,78 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+datasource db {
+  provider            = "mysql"
+  url                 = env("DATABASE_URL")
+}
+
+generator client {
+  provider            = "prisma-client-js"
+  output              = "./library"
+}
+
+model User {
+  id                  Int           @id @unique @default(autoincrement())
+  name                String        @unique
+  salt                String
+  password            String
+  securityPassword    String
+  avatar              String?
+  identity            Identity[]
+  firstEmail          String
+  email               String
+  firstIp             String
+  ip                  String
+  lastTime            DateTime      @default(now())
+  token               String        @default(uuid())
+  following           User[]        @relation("UserFollows")
+  followedBy          User[]        @relation("UserFollows")
+  userConfig          UserConfig?
+  account             Account[]
+}
+
+model Identity {
+  id                  Int           @id @unique @default(autoincrement())
+  name                String        @unique
+  level               Int
+  permission          Permission[]
+  user                User[]
+  pre                 Identity[]    @relation("IdentityDependencies")
+  post                Identity[]    @relation("IdentityDependencies")
+}
+
+model Permission {
+  id                  Int           @id @unique @default(autoincrement())
+  name                String        @unique
+  identity            Identity[]
+  pre                 Permission[]  @relation("PermissionDependencies")
+  post                Permission[]  @relation("PermissionDependencies")
+}
+
+model UserConfig {
+  id                  Int           @id @unique @default(autoincrement())
+  user                Int           @unique
+  User                User          @relation(fields: [user], references: [id])
+}
+
+model Account {
+  id                  Int           @id @unique @default(autoincrement())
+  user                Int
+  name                String
+  password            String
+  ip                  String
+  token               String
+  task                Task[]
+  User                User          @relation(fields: [user], references: [id])
+}
+
+model Task {
+  id                  Int           @id @unique @default(autoincrement())
+  account             Int
+  data                Json
+  Account             Account       @relation(fields: [account], references: [id])
+}
+
