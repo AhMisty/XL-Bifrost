@@ -4,6 +4,7 @@
     "description": "",
     "type": "module",
     "scripts": {
+        "serve": "node --max-old-space-size=8192 server.js"
     },
     "keywords": [],
     "author": "AhMisty",
