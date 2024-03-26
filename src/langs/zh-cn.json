@@ -1,0 +1,16 @@
+{
+	"log-Initialize-Logger": "初始化日志系统:",
+	"log-Loading-Logger": "正在加载日志系统......",
+	"log-Loaded-Logger": "日志系统已加载!",
+	"log-Initialize-Database": "初始化数据库本地终端:",
+	"log-Loading-Database": "正在加载数据库本地终端......",
+	"log-Loaded-Database": "数据库本地终端已加载!",
+	"log-Initialize-Database-Source": "初始化数据库连接:",
+	"log-Loading-Database-Source": "正在连接到 - %s",
+	"log-Load-Database-Source-Success": "已连接到数据库!",
+	"log-Load-Database-Source-Faild": "未能连接到数据库!",
+	"log-Create-New-Database": "创建数据库:",
+	"log-Creating-New-Database": "正在部署到 - %s",
+	"log-Create-New-Database-Success": "部署数据库成功!",
+	"log-Create-New-Database-Faild": "部署数据库失败!"
+}

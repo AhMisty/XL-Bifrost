@@ -1,0 +1,20 @@
+{
+    "name": "xl-bifrost-server",
+    "version": "1.0.0.0",
+    "description": "",
+    "type": "module",
+    "scripts": {
+    },
+    "keywords": [],
+    "author": "AhMisty",
+    "license": "ISC",
+    "prisma": {
+        "schema": "./library/schema.prisma"
+    },
+    "imports": {
+        "#config": "./config.js",
+        "#uWebSockets": "./library/uws.cjs"
+    },
+    "dependencies": {
+    }
+}
